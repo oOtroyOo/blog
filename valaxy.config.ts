@@ -17,5 +17,9 @@ export default defineValaxyConfig<ThemeUserConfig>({
 
   themeConfig: {},
 
+  vite: {
+    base: "/blog/"
+  },
+
   unocss: { safelist },
 })
