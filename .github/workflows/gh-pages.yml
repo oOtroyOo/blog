@@ -1,12 +1,13 @@
 name: GitHub Pages
 
-on: 
-  workflow_dispatch: 
+on:
+  workflow_dispatch:
   push:
     branches:
       # The branch where the project source code resides
       # 项目源代码所在的分支
       - main
+      - master
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
