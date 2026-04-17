@@ -1,25 +1,68 @@
-// import type { UserThemeConfig } from 'valaxy-theme-sakura'
-import { defineValaxyConfig } from 'valaxy'
-import type { ThemeUserConfig } from 'valaxy-theme-sakura'
-// add icons what you will need
-const safelist = [
-  'i-ri-home-line',
-]
+import { defineConfig } from 'valaxy'
+import type { ThemeConfig } from 'valaxy-theme-hairy'
+import { addonWaline } from 'valaxy-addon-waline'
+import { addonMeting } from 'valaxy-addon-meting'
 
 /**
  * User Config
+ * do not use export const config to avoid defu conflict
  */
-
-export default defineValaxyConfig<ThemeUserConfig>({
-  // site config see site.config.ts
-
-  theme: 'sakura',
-
-  themeConfig: {},
-
+export default defineConfig<ThemeConfig>({
   vite: {
-    base: "/blog/"
+    base: '/blog/'
   },
 
-  unocss: { safelist },
+  theme: 'hairy',
+
+  themeConfig: {
+    theme: 'light',
+    nav: [
+      {
+        text: 'Home',
+        link: '/',
+      },
+      {
+        text: 'About',
+        link: '/about',
+      },
+      {
+        text: 'Posts',
+        link: '/archives/',
+      },
+      {
+        text: 'Github',
+        link: 'https://github.com/TuiMao233/valaxy-theme-hairy',
+      },
+    ],
+    footer: {
+      since: 2016,
+      beian: {
+        enable: false,
+        icp: '苏ICP备xxxxxx号',
+      },
+      powered: true,
+    },
+  },
+
+
+  addons: [
+    addonWaline({
+      comment: true,
+      serverURL: 'https://blog-waline-hairy.vercel.app',
+      emoji: [
+        '//unpkg.com/@waline/emojis@1.0.1/weibo',
+        '//unpkg.com/@waline/emojis@1.0.1/bilibili',
+      ],
+      pageview: true,
+    }),
+    addonMeting({
+      global: true,
+      props: {
+        id: '5312894314',
+        type: 'playlist',
+        autoplay: true,
+        theme: 'var(--hy-c-primary)',
+      },
+    }),
+  ],
 })

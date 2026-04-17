@@ -1,7 +1,4 @@
 {
-  "name": "blog",
-  "type": "module",
-  "version": "0.0.0",
   "private": true,
   "scripts": {
     "build": "npm run build:ssg",
@@ -13,9 +10,12 @@
   },
   "dependencies": {
     "valaxy": "latest",
-    "valaxy-theme-sakura": "latest"
+    "valaxy-addon-meting": "latest",
+    "valaxy-addon-waline": "latest",
+    "valaxy-theme-hairy": "latest"
   },
   "devDependencies": {
-    "typescript": "^5.9.3"
+    "nodemon": "latest",
+    "vite-plugin-inspect": "latest"
   }
 }
